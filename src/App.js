@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Loadcountryies></Loadcountryies>
+
     </div>
   );
 }
+function Loadcountryies() {
+  const [countryes, setCountryes] = useState([])
+  useEffect(() => {
+    fetch('https://restcountries.com/v3.1/all')
+      .then(res => res.json())
+      .then(data => setCountryes(data))
+  }, [])
 
-export default App;
+  return (
+    <div>
+      <h1>Visiting Every Country of the world</h1>
+      <h3>country this here: {countryes.length}</h3>
+      {
+        countryes.map(country => <Country name={country.name.common} population={country.population} continents={country.continents} flags={country.flags.png}></Country>)
+      }
+
+      {/* {
+        countryes.map(country => <Country key={country.name.common} country={country} ></Country>)
+      } */}
+
+    </div>
+  )
+};
+// function Country({ country }) {
+function Country(props) {
+
+  // console.log(key)
+  return (
+    <div>
+      <h1>Name: {props.name.common}</h1>
+      <h2>Population: {props.population}</h2>
+      <h3>continents: {props.continents}</h3>
+      <img src={props.flags} alt='' />
+    </div>
+  )
+};
+export default App
