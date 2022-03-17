@@ -1,15 +1,15 @@
 import './App.css';
-// import About from './Components/About/About';
-// import Country from './Components/Country/Country';
-// import Person from './Components/Person/Person';
+import About from './Components/About/About';
+import Country from './Components/Country/Country';
+import Person from './Components/Person/Person';
 
 function App() {
   return (
     <div className="App">
       {/* <Loadcountryies></Loadcountryies> */}
-      {/* <Country></Country>
+      <Country></Country>
       <Person></Person>
-      <About></About> */}
+      <About></About>
 
     </div>
   );
