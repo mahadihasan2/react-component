@@ -1,16 +1,13 @@
+
 import './App.css';
-import About from './Components/About/About';
-import Country from './Components/Country/Country';
-import Person from './Components/Person/Person';
+import Countryies from "./Components/Countryies/Countryies";
+
 
 function App() {
+
   return (
     <div className="App">
-      {/* <Loadcountryies></Loadcountryies> */}
-      <Country></Country>
-      <Person></Person>
-      <About></About>
-
+      <Countryies></Countryies>
     </div>
   );
 }
@@ -50,4 +47,4 @@ function App() {
 //     </div>
 //   )
 // };
-export default App
+export default App;
